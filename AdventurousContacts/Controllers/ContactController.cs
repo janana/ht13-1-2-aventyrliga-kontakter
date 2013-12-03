@@ -38,26 +38,62 @@ namespace AdventurousContacts.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Contact contact)
+        public ActionResult Create([Bind(Exclude="ContactID")]Contact contact)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                _repository.Add(contact);
+                _repository.Save();
+                return View("Success", contact);
+            }
+            else
+            {
+                ModelState.AddModelError(string.Empty, "Ett okänt fel inträffade, försök gärna igen.");
+            }
+            return View("Create");
         }
 
         public ActionResult Edit(int id = 0)
         {
-            return View(); // Send form with contact for id
+            var contact = _repository.GetContactByID(id);
+            if (contact == null)
+            {
+                return View("NotFound", string.Empty, "Kontakten du försökte redigera existerar inte.");
+            }
+            else if (contact.ContactID <= 19977)
+            {
+                ModelState.AddModelError(string.Empty, "Varning: Det går inte att redigera kontakten för att den är tillagd av Mats!");
+                return View("Edit");
+            }
+
+            return View("Edit", contact);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Contact contact)
         {
-            return View(); // edit stuff, return successmessage view!!!
+            if (ModelState.IsValid)
+            {
+                _repository.Update(contact);
+                _repository.Save();
+                return View("Success", contact);
+            }
+            return View("NotFound", string.Empty, "Okänt fel inträffade."); 
         }
 
         public ActionResult Delete(int id = 0)
         {
-            return View(); // ARE U SURE U WANT TO DELETE CONTACT???
+            var contact = _repository.GetContactByID(id);
+            if (contact == null)
+            {
+                return View("NotFound", string.Empty, "Kontakten du försökte ta bort existerar inte.");
+            }
+            else if (contact.ContactID <= 19977)
+            {
+                return View("NotFound", string.Empty, "Varning: Det går inte att ta bort kontakten för att den är tillagd av Mats!");
+            }
+            return View("Delete", contact);
         }
 
         [HttpPost]
@@ -65,7 +101,25 @@ namespace AdventurousContacts.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            return View(); // Actually delete contact, return sucessmessage view!!!!!
+            if (ModelState.IsValid)
+            {
+                var contact = _repository.GetContactByID(id);
+                if (contact == null)
+                {
+                    return View("NotFound", string.Empty, "Kontakten du försökte ta bort existerar inte.");
+                }
+                else if (contact.ContactID <= 19977)
+                {
+                    return View("NotFound", string.Empty, "Varning: Det går inte att ta bort kontakten för att den är tillagd av Mats!");
+                }
+                else
+                {
+                    _repository.Delete(contact);
+                    _repository.Save();
+                    return View("DeleteSuccess", contact);
+                }
+            }
+            return View("NotFound", string.Empty, "Okänt fel inträffade.");
         }
 
 

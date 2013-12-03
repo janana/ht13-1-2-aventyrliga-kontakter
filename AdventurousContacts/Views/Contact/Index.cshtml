@@ -5,10 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Lägg till kontakt", "Create")
 </p>
 <table>
     <tr>
@@ -36,9 +34,8 @@
             @Html.DisplayFor(modelItem => item.EmailAddress)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ContactID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ContactID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ContactID })
+            @Html.ActionLink("Redigera", "Edit", new { id=item.ContactID }) |
+            @Html.ActionLink("Ta bort", "Delete", new { id=item.ContactID })
         </td>
     </tr>
 }

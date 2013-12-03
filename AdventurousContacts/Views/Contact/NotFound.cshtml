@@ -1,0 +1,9 @@
+﻿@model string
+@{
+    ViewBag.Title = "NotFound";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Något gick fel</h3>
+<p>@Model</p>
+@Html.ActionLink("Tillbaka till kontakter", "Index")

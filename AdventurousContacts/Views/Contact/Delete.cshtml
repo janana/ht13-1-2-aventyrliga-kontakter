@@ -1,0 +1,16 @@
+﻿@model AdventurousContacts.Models.Contact
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p>Är du säker att du vill ta bort kontakten: <strong>@Model.FirstName @Model.LastName (@Model.EmailAddress)</strong>?</p>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Ta bort" />
+    </p>
+}
+
+@Html.ActionLink("Tillbaka till kontakter", "Index")
