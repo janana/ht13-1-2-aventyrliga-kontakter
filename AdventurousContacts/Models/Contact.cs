@@ -10,9 +10,6 @@ namespace AdventurousContacts.Models
     [MetadataType(typeof(Contact_Metadata))]
     public partial class Contact
     {
-        
-
-
         class Contact_Metadata
         {
             [Required(ErrorMessage="Du måste ange en epostadress.")]

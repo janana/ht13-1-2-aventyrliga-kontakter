@@ -15,6 +15,5 @@ namespace AdventurousContacts.Models.Repository
         List<Contact> GetLastContacts(int count = 20);
         void Save();
         void Update(Contact contact);
-        
     }
 }

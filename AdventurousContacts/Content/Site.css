@@ -66,3 +66,7 @@ textarea {
     width: 700px;
     margin: auto;
 }
+td
+{
+    padding-right: 30px;
+}

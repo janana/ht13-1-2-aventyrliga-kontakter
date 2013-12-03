@@ -18,10 +18,9 @@ namespace AdventurousContacts.Models.Repository
         {
             _entities.Contacts.Remove(contact);
         }
-        public IQueryable<Contact> FindAllContacts()
+        public IQueryable<Contact> FindAllContacts() // ?
         {
-            // What is this for?????
-            return null;
+            return _entities.Contacts.AsQueryable();
         }
         public Contact GetContactByID(int contactID)
         {
