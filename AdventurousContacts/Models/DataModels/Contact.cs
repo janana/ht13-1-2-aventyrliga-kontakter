@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AdventurousContacts.Models.DataModels
+namespace AdventurousContacts.Models
 {
     using System;
     using System.Collections.Generic;

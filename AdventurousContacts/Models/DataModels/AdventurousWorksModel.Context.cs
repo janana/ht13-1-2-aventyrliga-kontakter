@@ -13,10 +13,10 @@ namespace AdventurousContacts.Models.DataModels
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ContactEntities : DbContext
+    public partial class AdventureWorksEntities : DbContext
     {
-        public ContactEntities()
-            : base("name=ContactEntities")
+        public AdventureWorksEntities()
+            : base("name=AdventureWorksEntities")
         {
         }
     
