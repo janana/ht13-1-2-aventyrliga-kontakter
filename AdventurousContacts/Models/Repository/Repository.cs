@@ -18,10 +18,10 @@ namespace AdventurousContacts.Models.Repository
         {
             _entities.Contacts.Remove(contact);
         }
-        public IQueryable<Contact> FindAllContacts() // ?
-        {
-            return _entities.Contacts.AsQueryable();
-        }
+        //public IQueryable<Contact> FindAllContacts() // ?
+        //{
+        //    return _entities.Contacts.AsQueryable();
+        //}
         public Contact GetContactByID(int contactID)
         {
             return _entities.Contacts.Find(contactID);

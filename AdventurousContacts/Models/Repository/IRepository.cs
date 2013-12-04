@@ -10,7 +10,7 @@ namespace AdventurousContacts.Models.Repository
     {
         void Add(Contact contact);
         void Delete(Contact contact);
-        IQueryable<Contact> FindAllContacts();
+        //IQueryable<Contact> FindAllContacts();
         Contact GetContactByID(int contactID);
         List<Contact> GetLastContacts(int count = 20);
         void Save();

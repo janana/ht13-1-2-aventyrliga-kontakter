@@ -129,6 +129,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -265,6 +266,7 @@
     <Content Include="Views\Contact\Success.cshtml" />
     <Content Include="Views\Contact\Delete.cshtml" />
     <Content Include="Views\Contact\DeleteSuccess.cshtml" />
+    <Content Include="Views\Error\Error404.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
